@@ -1,9 +1,18 @@
-{{>partials/header}}
 
+{{>partials/header}}
 {{#banner}}
 <section class="banner" style="background-image: url('images/{{background}}')">{{title}}</section>
 <h2>{{title}} disponíveis para adoção</h2>
 {{/banner}}
+<hr/>
+<h2>Lista de Usuários</h2>
+
+{{#users}}
+<li>{{id}} -{{name}} - Idade: {{age}}</li>
+{{/users}}
+<hr/>
+
+
 <div class="container list">
 
 {{#list}}

@@ -9,6 +9,12 @@ mecher no arquivo tsconfig.json
 npm install  express mustache-express dotenv
 npm install --save-dev @types/express @types/mustache-express @types/node
 npm install -g nodemon typescript ts-node
+npm i --save sequelize
+npm install validator
+npm install --save-dev @types/validator
+npm install --save-dev @types/sequelize
+npm install mysql2
+
 
 ## server.ts
 

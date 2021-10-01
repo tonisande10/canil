@@ -1,8 +1,21 @@
 import { Request, Response } from 'express';
 import {creatMenuObject} from '../helpers/CreateMenuObjects';
 import { Pet } from '../models/pet';
+import { sequelize } from '../instances/mysql';
+import {User} from '../models/User';
 
-export const home = (req: Request, res: Response)=>{
+export const home = async (req: Request, res: Response)=>{
+let users = await User.findAll({where:{age: 18}});
+console.log("Usuarios: " , JSON.stringify(users));
+
+
+try{
+    await sequelize.authenticate();
+    console.log("Conexão estabelecida com sucesso");
+}catch(error){
+    console.log("Deu problema", error);
+};
+
 
 let list = Pet.getAll();
 
@@ -13,8 +26,8 @@ res.render('pages/page',{
         title: 'Todos os animais',
         background: 'allanimals.jpg'
     },
-    list
-
+    list,
+    users
     });
 
 }
